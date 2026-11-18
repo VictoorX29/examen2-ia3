@@ -1,0 +1,223 @@
+:root {
+	--morado: 149, 100, 255;
+	--2: 13, 16, 31;
+	--3: 26, 23, 55;
+	--4: 166, 135, 228;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	height: 100dvh;
+	background-color: rgb(var(--2), 0.99);
+	display: grid;
+	place-items: center;
+}
+.container {
+	width: 100vw;
+	max-width: 1080px;
+	background-color: rgba(var(--2));
+}
+header {
+	padding: 1rem;
+	border-bottom: 2px solid rgba(var(--morado), 0.2);
+	display: flex;
+	justify-content: space-between;
+}
+.novaTit {
+	letter-spacing: 0.2rem;
+	color: white;
+	& > span {
+		color: rgb(var(--morado));
+	}
+}
+.novaNav {
+	width: 100%;
+	display: flex;
+	justify-content: end;
+	align-items: center;
+	& ul {
+		display: flex;
+		list-style: none;
+		gap: 2rem;
+	}
+	& a {
+		position: relative;
+		text-decoration: none;
+		color: lightgray;
+		transition: color 250ms ease-out;
+	}
+	& a::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		bottom: -4px;
+		width: 0;
+		height: 2px;
+		background-color: rgb(var(--morado));
+		transition:
+			width 250ms ease-out,
+			box-shadow 300ms ease-in-out;
+	}
+	& a:hover {
+		color: rgb(var(--morado));
+		box-shadow: 0 20px 10px rgba(var(--morado), 0.2);
+	}
+	& a:hover::after {
+		width: 100%;
+	}
+	width: 100%;
+	display: grid;
+	place-items: center;
+}
+main {
+	padding: 2rem 1rem;
+}
+.hero {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+.textHero {
+	display: flex;
+	animation: fadeIn 800ms ease-in-out;
+	flex-direction: column;
+	justify-content: center;
+	width: 100%;
+}
+.textEstHero {
+	text-transform: uppercase;
+	color: rgb(var(--4));
+}
+.titHero {
+	margin-top: 1rem;
+	font-size: 3rem;
+	color: white;
+}
+.descHero {
+	margin-top: 0.5rem;
+	font-size: 1.2rem;
+	color: lightgray;
+	line-height: 1.5em;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0px);
+	}
+}
+.btnHero {
+	display: flex;
+	width: fit-content;
+	align-items: center;
+	margin-top: 12px;
+	text-decoration: none;
+	color: white;
+	padding: 0.8rem 0.5rem;
+	background-color: rgb(var(--morado));
+	border-radius: 8px;
+	transition:
+		transform 300ms ease-in-out,
+		box-shadow 400ms ease-in-out;
+	&:is(:hover, :focus-visible) {
+		transform: scale(1.1);
+		box-shadow: 0 6px 10px rgba(var(--morado), 0.2);
+	}
+	&:active {
+		transform: scale(0.95);
+	}
+}
+.divEmbNova {
+	margin-block: 1rem;
+	padding: 2rem;
+	display: grid;
+	place-items: center;
+}
+.divBordEmbNova {
+	box-sizing: border-box;
+	padding: 1rem;
+	width: 80%;
+	aspect-ratio: 1 / 1;
+	border: 2px solid rgb(var(--morado));
+	border-radius: 50%;
+	display: grid;
+	place-items: center;
+}
+.divEmbNova img {
+	width: 80%;
+	height: auto;
+	animation: flotar 3s ease-in-out infinite alternate-reverse;
+	box-shadow: 0px 12px 20px rgba(var(--morado), 0.2);
+}
+@keyframes flotar {
+	0% {
+		transform: translateY(10px) rotate(12deg);
+	}
+	100% {
+		transform: translateY(-10px) rotate(12deg);
+	}
+}
+.divCardsProy {
+	margin-top: 1rem;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 1rem;
+}
+.cardProy {
+	background-color: rgba(var(--3), 0.5);
+	padding: 1rem;
+	border-radius: 8px;
+	display: flex;
+	flex-direction: column;
+	color: white;
+	cursor: pointer;
+	transition:
+		transform 300ms ease-out,
+		box-shadow 400ms ease-in-out;
+	animation: fadeIn 800ms ease-in-out;
+	&:is(:hover, :focus-visible) {
+		transform: translateY(-10px);
+		box-shadow: 0 15px 25px rgba(var(--morado), 0.2);
+	}
+}
+.divImgCardProy {
+	display: flex;
+	justify-content: center;
+	overflow: hidden;
+}
+.divImgCardProy img {
+	height: auto;
+	width: 80%;
+	transition: transform 300ms ease-in-out;
+	&:hover {
+		transform: scale(1.1);
+	}
+}
+.divTextCardProy {
+	margin-top: 0.5rem;
+}
+.divTextCardProy > h3 {
+	font-size: 1.5rem;
+}
+.divTextCardProy > p {
+	color: lightgray;
+}
+
+footer {
+	border-top: 2px solid rgba(var(--morado), 0.2);
+	padding: 1rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	color: lightgray;
+	font-size: 0.8rem;
+}
+footer a {
+	text-decoration: none;
+	color: currentColor;
+}
